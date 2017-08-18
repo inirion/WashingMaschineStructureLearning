@@ -42,11 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Basket.cs" />
     <Compile Include="Entities\Cloth\Dress.cs" />
     <Compile Include="Entities\Cloth\ICloth.cs" />
     <Compile Include="Entities\Cloth\Sock.cs" />
     <Compile Include="Entities\Softener\ISoftener.cs" />
     <Compile Include="Entities\Softener\SuperSoftener.cs" />
+    <Compile Include="Entities\WashingMachineOperator.cs" />
     <Compile Include="Entities\WashingMachine\StandardWashingMachine.cs" />
     <Compile Include="Entities\WashingPowder\IWashingPowder.cs" />
     <Compile Include="Entities\WashingPowder\NormalWashingPowder.cs" />
@@ -62,8 +64,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Actions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

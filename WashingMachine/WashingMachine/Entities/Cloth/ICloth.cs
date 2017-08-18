@@ -4,6 +4,6 @@ namespace WashingMachine.Entities.Cloth
 {
     public interface ICloth
     {
-        CleanType currentState { get; }
+        CleanType currentState { get; set; }
     }
 }

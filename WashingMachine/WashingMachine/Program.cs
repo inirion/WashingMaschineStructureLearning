@@ -1,4 +1,7 @@
 ﻿using System;
+using WashingMachine.Entities;
+using WashingMachine.Entities.Cloth;
+using WashingMachine.Factories;
 
 namespace WashingMachine
 {
@@ -6,10 +9,17 @@ namespace WashingMachine
     {
         static void Main(string[] args)
         {
-            Random rand = new Random();
-            for(int i =0; i < 50; i++)
+            WashingMachineOperator o = new WashingMachineOperator(ClothesFactory.Create5Socks());
+            o.OpenWashingMachine();
+            o.PlaceClothesIntoWashingMachine();
+            o.CloseWashingMachine();
+            o.StartWashingMachine();
+            o.StopWashingMachine();
+            o.OpenWashingMachine();
+            o.GetClothesFromWashingMachine();
+            foreach (ICloth item in o.GetWashedClothes())
             {
-                Console.WriteLine(rand.Next(0, 2));
+                Console.WriteLine(item.currentState.ToString());
             }
         }
     }

@@ -5,6 +5,18 @@ namespace WashingMachine.Entities.Cloth
 {
     public class Dress : ICloth
     {
-        public CleanType currentState => CleanType.Dirty;
+        private CleanType _currentState = CleanType.Dirty;
+
+        public CleanType currentState
+        {
+            get
+            {
+                return _currentState;
+            }
+            set
+            {
+                _currentState = value;
+            }
+        }
     }
 }
