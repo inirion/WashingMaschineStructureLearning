@@ -19,14 +19,15 @@ namespace WashingMachine.Factories
             };
         }
 
-        public static ICloth CreateRandomCloth()
+        public static ICloth CreateRandomCloth(IRandomClothType type)
         {
-            RandomCloth random = new RandomCloth();
-            ClothType resault = random.GetRandomClothType();
+            ClothType resault = type.GetRandomClothType();
             switch (resault)
             {
                 case ClothType.Sock:
                     return new Sock();
+                case ClothType.Dress:
+                    return new Dress();
                 default:
                     throw new NotImplementedException();
             }

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using WashingMachine.Entities.Cloth;
 using WashingMachine.Factories;
+using Moq;
+using WashingMachine.Utils.Randomizer;
+using WashingMachine.Enums;
 
 namespace WashingMachineTests
 {
@@ -12,8 +15,11 @@ namespace WashingMachineTests
         {
             //given 
             ICloth expected = new Sock();
+            Mock<IRandomClothType> RandomClothMocked = new Mock<IRandomClothType>();
+            RandomClothMocked.Setup(i => i.GetRandomClothType()).Returns(ClothType.Sock);
+
             //when
-            ICloth resault = ClothesFactory.CreateRandomCloth();
+            ICloth resault = ClothesFactory.CreateRandomCloth(RandomClothMocked.Object);
             //than
             Assert.AreEqual(expected.GetType(), resault.GetType());
         }

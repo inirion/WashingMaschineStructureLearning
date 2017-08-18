@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WashingMachine.Enums;
 
 namespace WashingMachine.Utils.Randomizer
 {
-    class RandomCloth : IRandomizer
+    class RandomCloth : IRandomizer, IRandomClothType
     {
         Random rand = new Random();
+
         public int RollAtRange(int min, int max)
         {
             return rand.Next(min,max);

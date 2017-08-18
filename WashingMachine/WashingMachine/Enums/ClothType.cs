@@ -2,6 +2,7 @@
 {
     public enum ClothType
     {
-        Sock
+        Sock,
+        Dress
     }
 }
