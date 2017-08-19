@@ -67,7 +67,6 @@ namespace WashingMachine.Entities
             }
         }
 
-
         public void OpenWashingMachine()
         {
             washingMachine.isOpen = true;
@@ -77,8 +76,5 @@ namespace WashingMachine.Entities
         {
             washingMachine.isOpen = false;
         }
-
-
-
     }
 }

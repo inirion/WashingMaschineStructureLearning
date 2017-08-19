@@ -10,6 +10,7 @@ namespace WashingMachine
         static void Main(string[] args)
         {
             ///<summary>
+            ///WashingMachineOperator is orchestrator pattern invoking all actions of main entities
             ///Good Sequence for WashingMachine usage are fallowing:
             ///->Place clothes in basket
             ///->Open WashingMachine
