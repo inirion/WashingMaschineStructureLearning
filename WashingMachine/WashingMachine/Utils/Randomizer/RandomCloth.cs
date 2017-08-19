@@ -5,11 +5,12 @@ namespace WashingMachine.Utils.Randomizer
 {
     class RandomCloth : IRandomizer, IRandomClothType
     {
-        Random rand = new Random();
+        private readonly static Random rand = new Random();
 
         public int RollAtRange(int min, int max)
         {
-            return rand.Next(min,max);
+            int value = rand.Next(min, max);
+            return value;
         }
 
         public ClothType GetRandomClothType()

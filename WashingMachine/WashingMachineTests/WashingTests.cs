@@ -1,8 +1,11 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
 using System.Collections.Generic;
 using WashingMachine.Entities;
 using WashingMachine.Entities.Cloth;
+using WashingMachine.Enums;
 using WashingMachine.Factories;
+using WashingMachine.Utils.Randomizer;
 
 namespace WashingMachineTests
 {
@@ -12,9 +15,15 @@ namespace WashingMachineTests
         public void ShouldWash5Socks()
         {
             //given
-            WashingMachineOperator o = new WashingMachineOperator(ClothesFactory.Create5Socks());
+            WashingMachineOperator o = new WashingMachineOperator();
             List<ICloth> expected = ClothesFactory.Create5Socks();
+            Mock<IRandomClothType> RandomClothMocked = new Mock<IRandomClothType>();
+            RandomClothMocked.Setup(i => i.GetRandomClothType()).Returns(ClothType.Sock);
             //when
+            for(int i = 0; i < 5; i++)
+            {
+                o.AddClothesToBasket(RandomClothMocked.Object);
+            }
             o.OpenWashingMachine();
             o.PlaceClothesIntoWashingMachine();
             o.CloseWashingMachine();

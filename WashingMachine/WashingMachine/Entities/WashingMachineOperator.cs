@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using WashingMachine.Entities.Cloth;
 using WashingMachine.Entities.WashingMachine;
 using WashingMachine.Factories;
+using WashingMachine.Utils.Randomizer;
 
 namespace WashingMachine.Entities
 {
@@ -23,9 +24,14 @@ namespace WashingMachine.Entities
             return washedCloths;
         }
 
+        public void AddClothesToBasket(IRandomClothType random)
+        {
+            basket.AddClothesToBasket(new List<ICloth>() { ClothesFactory.CreateRandomCloth(random) });
+        }
+
         public void AddClothesToBasket()
         {
-            basket.AddClothesToBasket(new List<ICloth>() { ClothesFactory.CreateRandomCloth() });
+            AddClothesToBasket(new RandomCloth());
         }
 
         public void PlaceClothesIntoWashingMachine()
