@@ -12,10 +12,9 @@ namespace WashingMachine.Entities
         private StandardWashingMachine washingMachine;
         private List<ICloth> washedCloths = new List<ICloth>();
 
-        public WashingMachineOperator(List<ICloth> clothes)
+        public WashingMachineOperator()
         {
             basket = new Basket();
-            basket.AddClothesToBasket(clothes);
             washingMachine = new StandardWashingMachine();
         }
 
@@ -24,9 +23,14 @@ namespace WashingMachine.Entities
             return washedCloths;
         }
 
+        public void AddClothesToBasket()
+        {
+            basket.AddClothesToBasket(new List<ICloth>() { ClothesFactory.CreateRandomCloth() });
+        }
+
         public void PlaceClothesIntoWashingMachine()
         {
-            if(washingMachine.isOpen == true)
+            if(washingMachine.isOpen == true && !washingMachine.isWashing)
             {
                 washingMachine.AddClothesToWashingMachine(basket.GetClothesFromBasket());
             }

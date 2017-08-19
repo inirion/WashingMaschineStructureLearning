@@ -34,5 +34,10 @@ namespace WashingMachine.Factories
                     throw new NotImplementedException();
             }
         }
+
+        public static ICloth CreateRandomCloth()
+        {
+            return CreateRandomCloth(new RandomCloth());
+        }
     }
 }
